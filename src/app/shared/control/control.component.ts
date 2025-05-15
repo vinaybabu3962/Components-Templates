@@ -1,4 +1,4 @@
-import { Component, HostBinding, HostListener, Input, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, HostBinding, HostListener, inject, Input, ViewEncapsulation } from '@angular/core';
 @Component({
   selector: 'app-control',
   standalone: true,
@@ -18,9 +18,11 @@ export class ControlComponent {
   //   console.log("cklicked");
   // }
 
+  private el = inject(ElementRef) ; 
   @Input({ required: true }) label!: string;
 
   onClick() {
     console.log("cklicked");
+    console.log(this.el);
   }
 }
